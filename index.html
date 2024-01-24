@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Verification</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('bacg.jpg'); /* Use your local image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white; /* Set text color to be visible against the background */
+            font-size: 18px; /* Increase the default font size */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px; /* Increase padding for the form */
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px; /* Increase the form font size */
+        }
+
+        #username {
+            font-size: 18px; /* Increase the text field font size */
+            padding: 10px; /* Increase the padding of the text field */
+        }
+
+        #loadingIndicator,
+        #verifiedMessage {
+            display: none;
+            color: black; /* Set text color for messages */
+        }
+
+        #loadingIcon {
+            animation: spin 1s linear infinite; /* Add spinning animation to the icon */
+        }
+
+        #verifiedMessage p {
+            font-size: 30px; /* Increase the verified message font size */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <form id="verificationForm" onclick="hideElements()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+        <button type="button">Verify</button>
+    </form>
+    <div id="loadingIndicator">
+        <p>Loading...</p>
+        <div id="loadingIcon">⚙️</div>
+    </div>
+    <div id="verifiedMessage">
+        <p>Verified! ✅</p>
+    </div>
+
+    <script>
+        function hideElements() {
+            // Hide the text field and button
+            document.getElementById('username').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            // Simulate verification delay (you can replace this with actual verification logic)
+            setTimeout(function() {
+                // Hide loading indicator
+                document.getElementById('loadingIndicator').style.display = 'none';
+
+                // Show verified message
+                document.getElementById('verifiedMessage').style.display = 'block';
+            }, 2000); // 2000 milliseconds (2 seconds) delay for demonstration purposes
+        }
+    </script>
+</body>
+</html>
