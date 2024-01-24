@@ -35,14 +35,12 @@
         #verifiedMessage {
             display: none;
             color: black; /* Set text color for messages */
+            font-size: 24px; /* Increase the message font size */
         }
 
         #loadingIcon {
-            animation: spin 1s linear infinite; /* Add spinning animation to the icon */
-        }
-
-        #verifiedMessage p {
-            font-size: 30px; /* Increase the verified message font size */
+            animation: spin 1s linear infinite;
+            font-size: 30px; /* Increase the loading icon font size */
         }
 
         @keyframes spin {
@@ -52,36 +50,42 @@
     </style>
 </head>
 <body>
-    <form id="verificationForm" onclick="hideElements()">
+    <form id="verificationForm">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username">
-        <button type="button">Verify</button>
+        <input type="url" id="username" name="username" placeholder="Enter your username">
+        <button type="button" onclick="hideElements()">Verify</button>
     </form>
     <div id="loadingIndicator">
-        <p>Loading...</p>
+        <h1>Loading...</h1>
         <div id="loadingIcon">⚙️</div>
     </div>
     <div id="verifiedMessage">
-        <p>Verified! ✅</p>
+        <h1>Verified! ✅</h1>
     </div>
 
     <script>
         function hideElements() {
-            // Hide the text field and button
-            document.getElementById('username').style.display = 'none';
-            document.querySelector('button').style.display = 'none';
+            // Get the input value
+            var usernameValue = document.getElementById('username').value;
 
-            // Show loading indicator
-            document.getElementById('loadingIndicator').style.display = 'block';
+            // Check if the input is not empty
+            if (usernameValue.trim() !== '') {
+                // Hide the text field and button
+                document.getElementById('verificationForm').style.display = 'none';
+                document.querySelector('button').style.display = 'none';
 
-            // Simulate verification delay (you can replace this with actual verification logic)
-            setTimeout(function() {
-                // Hide loading indicator
-                document.getElementById('loadingIndicator').style.display = 'none';
+                // Show loading indicator
+                document.getElementById('loadingIndicator').style.display = 'block';
 
-                // Show verified message
-                document.getElementById('verifiedMessage').style.display = 'block';
-            }, 2000); // 2000 milliseconds (2 seconds) delay for demonstration purposes
+                // Simulate verification delay (you can replace this with actual verification logic)
+                setTimeout(function() {
+                    // Hide loading indicator
+                    document.getElementById('loadingIndicator').style.display = 'none';
+
+                    // Show verified message
+                    document.getElementById('verifiedMessage').style.display = 'block';
+                }, 4000); // 2000 milliseconds (2 seconds) delay for demonstration purposes
+            }
         }
     </script>
 </body>
