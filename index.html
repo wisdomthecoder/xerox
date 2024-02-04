@@ -11,7 +11,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-image: url('bacg.jpg'); /* Use your local image file */
+            background-image: url('bac.jpg'); /* Use your local image file */
             background-size: cover;
             background-repeat: no-repeat;
             color: white; /* Set text color to be visible against the background */
@@ -50,43 +50,6 @@
     </style>
 </head>
 <body>
-    <form id="verificationForm">
-        <label for="username">Username:</label>
-        <input type="url" id="username" name="username" placeholder="Enter your username">
-        <button type="button" onclick="hideElements()">Verify</button>
-    </form>
-    <div id="loadingIndicator">
-        <h1>Loading...</h1>
-        <div id="loadingIcon">⚙️</div>
-    </div>
-    <div id="verifiedMessage">
-        <h1>Verified! ✅</h1>
-    </div>
 
-    <script>
-        function hideElements() {
-            // Get the input value
-            var usernameValue = document.getElementById('username').value;
-
-            // Check if the input is not empty
-            if (usernameValue.trim() !== '') {
-                // Hide the text field and button
-                document.getElementById('verificationForm').style.display = 'none';
-                document.querySelector('button').style.display = 'none';
-
-                // Show loading indicator
-                document.getElementById('loadingIndicator').style.display = 'block';
-
-                // Simulate verification delay (you can replace this with actual verification logic)
-                setTimeout(function() {
-                    // Hide loading indicator
-                    document.getElementById('loadingIndicator').style.display = 'none';
-
-                    // Show verified message
-                    document.getElementById('verifiedMessage').style.display = 'block';
-                }, 4000); // 2000 milliseconds (2 seconds) delay for demonstration purposes
-            }
-        }
-    </script>
 </body>
 </html>
